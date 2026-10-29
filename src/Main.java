@@ -42,6 +42,12 @@ public class Main {
             System.out.println("Odbijeno: " + e.getMessage());
         }
 
+          try {
+            p2.dodaj(-5);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Odbijeno: " + e.getMessage());
+        }
+
        try {
     Proizvod neispravni = new Proizvod("   ", 10.00);
 } catch (IllegalArgumentException e) {
