@@ -22,7 +22,6 @@ public class Proizvod {
         this(naziv, cijena, 0);
     }
 
-    // Getteri
     public String getSifra() {
         return sifra;
     }
@@ -39,7 +38,6 @@ public class Proizvod {
         return kolicina;
     }
 
-    // Setteri s validacijom
     public void setNaziv(String naziv) {
         this.naziv = validirajNaziv(naziv);
     }
@@ -62,14 +60,12 @@ public class Proizvod {
         return cijena;
     }
 
-    // Samostalna validacijska funkcija za količinu
     private void checkKolicina(int kolicina) {
         if (kolicina < 0) {
             throw new IllegalArgumentException("Količina ne može biti negativna.");
         }
     }
 
-    // Metode za promjenu količine
     public void dodaj(int kolicina) {
         checkKolicina(kolicina);
         this.kolicina += kolicina;
