@@ -1,15 +1,13 @@
 public class Proizvod {
 
-    // Podaci na razini klase
+
     private static int proizvodCount = 0;
 
-    // Osnovni podaci svakog objekta pojedinačno
     private final String sifra;
     private String naziv;
     private double cijena;
     private int kolicina;
 
-    // Glavni konstruktor: prima naziv, cijenu i količinu
     public Proizvod(String naziv, double cijena, int kolicina) {
         this.naziv = validirajNaziv(naziv);
         this.cijena = validirajCijenu(cijena);
@@ -20,7 +18,6 @@ public class Proizvod {
         this.sifra = "P" + String.format("%03d", proizvodCount);
     }
 
-    // Skraćeni konstruktor: prima naziv i cijenu uz početnu količinu 0, poziva prvi konstruktor preko this(...)
     public Proizvod(String naziv, double cijena) {
         this(naziv, cijena, 0);
     }
@@ -86,7 +83,6 @@ public class Proizvod {
         this.kolicina -= kolicina;
     }
 
-    // Preopterećene metode za ukupnu vrijednost
     public double ukupnaVrijednost() {
         return cijena * kolicina;
     }
@@ -98,12 +94,11 @@ public class Proizvod {
         return ukupnaVrijednost() * (1 - popust / 100);
     }
 
-    // Statička metoda za dohvat broja stvorenih proizvoda
     public static int getBrojStvorenihProizvoda() {
         return proizvodCount;
     }
 
-    // Metoda opis()
+
     public String opis() {
         return sifra + " | " + naziv + " | " + String.format("%.2f", cijena) + " EUR | " + kolicina + " kom.";
     }
